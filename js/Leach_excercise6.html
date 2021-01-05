@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+</head>
+<body>
+
+<div id="output"></div>
+<script>
+ var names = [];
+ var theName = "";
+ var total = 0;
+ var outstanding=[];
+ while (theName != "XXX")
+ 	{
+ 		theName = prompt("Enter a name or XXX to Stop");
+	//check with if statement for valid input 4.0 highest and not adding strings	
+ 		if(theName != "XXX" && theName<=4.0 && parseFloat(theName)){
+			names.push(theName);
+ 				}
+ 	}
+ 	
+
+for(var x = 0; x < names.length; x++)
+ 		{
+			total+=parseFloat(names[x]);		
+ 			if(names[x]>3.4)
+				{
+					outstanding.push(names[x]);
+						}
+ 		}
+
+var avg= total/names.length;
+var sorted= names.sort()
+document.getElementById("output").innerHTML+=  "In order: "+ sorted +
+	"<br/>GPA Average is: " +
+	avg+ "<br/>"+
+	"Highest GPA/Lowest : "+ sorted[0] + " / " +
+	 sorted[sorted.length-1]+ "<br/> Outstanding GPAS: " + outstanding  ;
+</script>
+</body>
+</html>
+

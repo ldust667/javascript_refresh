@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<script>
+
+function showResult(numberOne,numberTwo, operator)
+ {
+
+	if(isNaN(numberOne) || isNaN(numberTwo))
+	{	
+		alert("Please enter a number!");
+			}
+
+	else
+	{
+		if(operator=="*" || operator=="/" || operator=="+" || operator=="-" || operator=="%")
+                       {
+				document.getElementById("out").innerHTML=eval(parseFloat(numberOne) + operator + parseFloat(numberTwo));
+                                        }
+//                else
+//			{
+  //                      alert("Please make a valid mathematical operator entry!");
+                                	}
+	
+//			}
+
+
+
+}
+let numOne= prompt("Please enter your first number:");
+let numTwo= prompt("Please enter you second number:");
+let mathSym= prompt("Please enter your mathematical symbol for the equation:");
+
+
+
+
+
+</script>
+</head>
+<body>
+
+<div id="out"></div>
+<script>
+
+
+showResult(numOne,numTwo,mathSym);
+
+
+
+
+</script>
+
+</body>
+</html>
+
