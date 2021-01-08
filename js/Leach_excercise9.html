@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+</head>
+<body>
+
+<div id="output"></div>
+ <script>
+ let todo = ()=> document.getElementById("output").innerHTML= "<H1> TO-DO: </h1> \n";
+
+ let addTodos = function(...toDoList) {
+ for(i=0; i < toDoList.length; i++){
+ 		document.getElementById("output").innerHTML += "<p>" + toDoList[i] + " </p> \n";
+ 			}
+ 				};
+todo();
+addTodos("clean bathroom","Clean bedroom", "wash dishes","feed pets", "Write grocery list");
+ </script>
+
+</body>
+</html>
+
