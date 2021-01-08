@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ <title>Daily Chores</title>
+ </head>
+ <body>
+ <h1>Daily Chores</h1>
+ <label for="name">Name:</label>
+ <input type="text" id="name" /><br/>
+ <label for="chore">Chore:</label>
+ <input type="text" id="chore"/><br/>
+ <button id="btnAddChore">Assign Chore</button>
+ <button id="btnAssignments">Display Assignments</button>
+ <div id="result"></div>
+
+ <script>
+//setting up cont=stants to refrence html elements and validation
+ const ADDBUTTON = document.getElementById("btnAddChore");
+ const DISPLAYBUTTON = document.getElementById("btnAssignments");
+ let availableChores = ["front room sweep", "back room sweep", "outside grounds", "clean toilet", "clean sink", "trash patrol and supplies"];
+ let assigments = new Map();
+ let validationCheck_Chore=0;
+
+//setting on click function for button to handle entry of set chores 
+ADDBUTTON.onclick = function(){
+	const name = document.getElementById("name");
+	let chore = document.getElementById("chore");
+//for loop to check all current entries for available chores- validation of entries
+	for (let r in availableChores){
+		if(chore.value.toLowerCase()==availableChores[r])
+			{ assigments.set(name.value, chore.value);
+			  validationCheck_Chore=1;		}
+								}
+	if(validationCheck_Chore==1){
+		alert("Chore entered sucessfully!");
+					}
+	else{
+		alert("Please doublecheck to ensure this chore is entered in the system");
+				}
+	//resetting validation variable
+	validationCheck_Chore=0;
+	name.value = "";
+	chore.value = "";
+
+ 			};
+
+ DISPLAYBUTTON.onclick = function(){
+ let out= "";
+ for(let i of assigments.entries())
+ 	{
+ 		out += i[0] + ": " + i[1];
+ 		out += "<br/>";
+ 	}	
+
+ document.getElementById("result").innerHTML = out;
+ }
+ </script>
+ </body>
+</html>
